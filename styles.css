@@ -1,0 +1,226 @@
+/* ==========================================
+   FRIED CHICKEN - Yellow Background & Black Typography Theme
+   ========================================== */
+
+:root {
+    --bg-main: #FFD200;
+    --bg-card: #FFE247;
+    --bg-light: #FFF073;
+    --text-primary: #000000;
+    --border-color: #000000;
+}
+
+/* Global Background and Typography */
+body {
+    background-color: #FFD200 !important;
+    color: #000000 !important;
+}
+
+/* Force pure black on all typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+    font-weight: 900 !important;
+}
+
+p, span, label, div, a, li, b, strong {
+    color: #000000;
+}
+
+/* Input text */
+input, textarea, select {
+    color: #000000 !important;
+    background-color: #FFF8B3 !important;
+    border-color: #000000 !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #444444 !important;
+}
+
+/* Selection Color */
+::selection {
+    background-color: #000000;
+    color: #FFD200;
+}
+
+/* Custom Scrollbar in Black & Yellow */
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFD200;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #222222;
+}
+
+/* Hide scrollbar for category tabs */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Card hover animation with bold black border and shadow */
+.meal-card {
+    background-color: #FFE54C !important;
+    border: 2px solid #000000 !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.meal-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px #000000 !important;
+}
+
+.meal-img-wrapper {
+    overflow: hidden;
+    background-color: #FFCA00;
+    border-bottom: 2px solid #000000;
+}
+
+.meal-img-wrapper img {
+    transition: transform 0.35s ease;
+}
+
+.meal-card:hover .meal-img-wrapper img {
+    transform: scale(1.06);
+}
+
+/* Category Filter Active & Inactive state */
+.cat-btn {
+    background-color: #FFE54C !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    font-weight: 800 !important;
+    box-shadow: 2px 2px 0px #000000;
+    transition: all 0.15s ease;
+}
+
+.cat-btn:hover {
+    background-color: #FFF08A !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px #000000;
+}
+
+.cat-btn.active {
+    background-color: #000000 !important;
+    color: #FFD200 !important;
+    border-color: #000000 !important;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
+.cat-btn.active i, .cat-btn.active span {
+    color: #FFD200 !important;
+}
+
+/* Custom Toast notification in Yellow & Black */
+.toast-notice {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #000000;
+    color: #FFD200 !important;
+    border: 3px solid #000000;
+    padding: 12px 24px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.toast-notice span, .toast-notice i {
+    color: #FFD200 !important;
+}
+
+.toast-notice.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Form Inputs Focus */
+input:focus, textarea:focus {
+    border-color: #000000 !important;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Delivery Bike Animation */
+@keyframes bike-ride {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-15px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.anim-bike {
+    animation: bike-ride 3s ease-in-out infinite;
+}
+
+/* Step pulse animation */
+@keyframes step-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+}
+
+.active-step-pulse {
+    animation: step-pulse 2s infinite;
+}
+
+/* Branch Photos Thumbnails */
+.branch-thumb.active {
+    box-shadow: 0 0 0 3px #000000, 2px 2px 0px #000000 !important;
+    opacity: 1 !important;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    transition: opacity 0.3s ease;
+}
+
+/* Fiery Red Top Announcement Bar with Pure White Text */
+.top-announcement-bar {
+    background: linear-gradient(90deg, #991B1B 0%, #DC2626 25%, #EF4444 50%, #DC2626 75%, #991B1B 100%) !important;
+    border-bottom: 2px solid #000000 !important;
+    color: #FFFFFF !important;
+}
+
+.top-announcement-bar span,
+.top-announcement-bar a,
+.top-announcement-bar i {
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.top-announcement-bar a:hover {
+    color: #FEF08A !important; /* Soft golden highlight on hover */
+    text-decoration: underline;
+}
+
