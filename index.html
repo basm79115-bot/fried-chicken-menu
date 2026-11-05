@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRIED CHICKEN | أقوى منيو فرايد تشيكن مقرمش</title>
+    <!-- Google Fonts: Cairo & Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon Logo -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FFD200',
+                            card: '#FFE54C',
+                            light: '#FFF073',
+                            pale: '#FFF8B3',
+                            black: '#000000'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        rubik: ['Rubik', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#FFD200] text-black font-cairo antialiased min-h-screen selection:bg-black selection:text-[#FFD200]">
+
+    <!-- Top Announcement Bar (Fiery Red background, White text) -->
+    <div class="top-announcement-bar text-white text-xs md:text-sm py-2.5 px-4 text-center font-black tracking-wide flex items-center justify-center gap-2 border-b-2 border-black shadow-md">
+        <i class="fa-solid fa-fire text-white animate-bounce text-sm"></i>
+        <span class="text-white">عرض خاص اليوم: توصيل مجاني للطلبات فوق 300 ج.م | اتصل بنا مباشرة: <a href="tel:056465156484" class="underline tracking-wider font-rubik text-white hover:text-yellow-200">056465156484</a></span>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-[#FFD200]/95 backdrop-blur-md border-b-2 border-black transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <img src="logo.png" onerror="this.src='file:///C:/Users/lap%20shop/.gemini/antigravity/brain/4ba04367-340e-4fc5-b6b9-41956ed42733/.user_uploaded/media_1793693864574_e6d06f92.png'" alt="FRIED CHICKEN Logo" class="w-14 h-14 rounded-2xl object-cover border-2 border-black shadow-[3px_3px_0px_#000000] transform hover:scale-105 transition-transform bg-[#FFD200]">
+                    <div>
+                        <span class="font-rubik font-black text-2xl tracking-wider text-black">FRIED CHICKEN</span>
+                        <p class="text-[11px] text-black font-bold tracking-widest -mt-1">أشهى دجاج مقرمش وسر التتبيلة</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Quick Links -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-black text-black">
+                    <a href="#menu-section" class="hover:underline transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-utensils"></i> المنيو
+                    </a>
+                    <a href="#offers-section" class="hover:underline transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-tags"></i> العروض الحصرية
+                    </a>
+                    <a href="#tracking-section" class="hover:underline transition-colors flex items-center gap-1.5 text-black font-black bg-[#FFE54C] px-3.5 py-1.5 rounded-xl border-2 border-black shadow-[2px_2px_0px_#000000]">
+                        <i class="fa-solid fa-motorcycle animate-pulse"></i> تتبع الدليفري
+                    </a>
+                    <a href="#reviews-section" class="hover:underline transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-star"></i> تقييمات الأكيلة
+                    </a>
+                    <a href="#contact-section" class="hover:underline transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-location-dot"></i> موقعنا والفرع
+                    </a>
+                </nav>
+
+                <!-- Actions: Call & Cart (Same background as delivery tracking: #FFE54C with black text & border) -->
+                <div class="flex items-center gap-3">
+                    <a href="tel:056465156484" class="hidden sm:inline-flex items-center gap-2 bg-[#FFE54C] hover:bg-[#FFF073] border-2 border-black text-black px-4 py-2.5 rounded-xl font-black text-sm transition-all duration-200 shadow-[2px_2px_0px_#000000]">
+                        <i class="fa-solid fa-phone-volume text-black animate-pulse"></i>
+                        <span class="font-rubik text-black font-black tracking-wider text-base" dir="ltr">056465156484</span>
+                    </a>
+                    <!-- Cart Button with Counter (Changed from black to #FFE54C like delivery tracking) -->
+                    <button id="cartBtn" class="relative bg-[#FFE54C] hover:bg-[#FFF073] text-black px-5 py-2.5 rounded-xl font-black flex items-center gap-2.5 border-2 border-black shadow-[2px_2px_0px_#000000] transition-all active:scale-95">
+                        <i class="fa-solid fa-cart-shopping text-black text-lg"></i>
+                        <span class="hidden sm:inline text-black font-black">طلبك</span>
+                        <span id="cartCount" class="bg-black text-[#FFD200] text-xs font-black px-2 py-0.5 rounded-full min-w-[20px] text-center border border-black shadow-inner">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Yellow background, Black text & borders) -->
+    <section class="relative overflow-hidden py-12 lg:py-20 bg-[#FFD200] border-b-2 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FFE54C] border-2 border-black text-black font-black text-xs md:text-sm shadow-[2px_2px_0px_#000000]">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                        القرمشة الحقيقية.. من أول قضمة لآخر فتفوتة!
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-black">
+                        عالم الفرايد تشيكن <br>
+                        <span class="bg-black text-[#FFD200] px-3 py-0.5 rounded-xl inline-block mt-1">المقرمش والمبهر</span> على أصوله
+                    </h1>
+                    <p class="text-black text-base sm:text-lg max-w-2xl leading-relaxed font-bold">
+                        أشهى وجبات الدجاج المقلي المقرمش، ساندوتشات كرسبي عملاقة، باكتات عائلية تكفي اللمة، وتشكيلة صوصات خاصة مش هتلاقيها في أي مكان تاني. اطلب الآن واستمتع بطعم لا يُقاوم!
+                    </p>
+                    
+                    <!-- Callout info pills -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2 text-xs sm:text-sm text-black font-extrabold">
+                        <div class="flex items-center gap-2 bg-[#FFE54C] px-3.5 py-2 rounded-xl border-2 border-black shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>دجاج طازج يومياً 100%</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-[#FFE54C] px-3.5 py-2 rounded-xl border-2 border-black shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            <span>توصيل سريع ساخن ومقرمش</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-[#FFE54C] px-3.5 py-2 rounded-xl border-2 border-black shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-star"></i>
+                            <span>تقييم 4.9 من أكثر من 5,000 زبون</span>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods Badges in Hero -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs text-black font-black">
+                        <span class="ml-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-credit-card"></i> طرق دفع متعددة:
+                        </span>
+                        <span class="bg-[#FFE54C] border-2 border-black px-3 py-1 rounded-full flex items-center gap-1.5 shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-bolt"></i> انستا باي
+                        </span>
+                        <span class="bg-[#FFE54C] border-2 border-black px-3 py-1 rounded-full flex items-center gap-1.5 shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-wallet"></i> فودافون كاش
+                        </span>
+                        <span class="bg-[#FFE54C] border-2 border-black px-3 py-1 rounded-full flex items-center gap-1.5 shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-brands fa-cc-mastercard"></i> ماستر كارد وفيزا
+                        </span>
+                        <span class="bg-[#FFE54C] border-2 border-black px-3 py-1 rounded-full flex items-center gap-1.5 shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-money-bill-wave"></i> كاش
+                        </span>
+                    </div>
+
+                    <!-- Hero Action Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#menu-section" class="bg-black hover:bg-gray-900 text-[#FFD200] font-black px-8 py-3.5 rounded-xl border-2 border-black shadow-[4px_4px_0px_#000000] transition-all flex items-center gap-3 text-base">
+                            <i class="fa-solid fa-book-open"></i> تصفح المنيو واطلب
+                        </a>
+                        <a href="tel:056465156484" class="bg-[#FFE54C] hover:bg-[#FFF073] text-black border-2 border-black font-black px-7 py-3.5 rounded-xl transition-all flex items-center gap-3 shadow-[4px_4px_0px_#000000] text-base">
+                            <i class="fa-solid fa-phone"></i> اتصل: <span class="font-rubik text-black" dir="ltr">056465156484</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image with Floating Badges -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Hero Image -->
+                        <img src="logo.png" 
+                             alt="FRIED CHICKEN Brand" 
+                             class="relative z-10 w-full h-[360px] sm:h-[420px] object-cover rounded-3xl border-4 border-black shadow-[8px_8px_0px_#000000] hover:scale-[1.01] transition-transform duration-300 bg-[#FFD200]">
+                        
+                        <!-- Floating Badge 1: Crunchy Tag -->
+                        <div class="absolute -top-4 -right-4 z-20 bg-[#FFE54C] border-2 border-black p-3.5 rounded-2xl shadow-[4px_4px_0px_#000000] flex items-center gap-3 animate-bounce">
+                            <div class="w-10 h-10 rounded-xl bg-black text-[#FFD200] flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-fire"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-black font-bold">سر التتبيلة</p>
+                                <p class="text-sm font-black text-black">11 بهار سري خاص</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge 2: Super Discount -->
+                        <div class="absolute -bottom-6 -left-4 z-20 bg-black text-[#FFD200] border-2 border-black p-4 rounded-2xl shadow-[4px_4px_0px_#000000]">
+                            <p class="text-xs font-black uppercase tracking-wider text-[#FFD200]">خصم إضافي 20%</p>
+                            <p class="text-lg font-black font-rubik text-white">على كل الوجبات العائلية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers & Bestsellers Highlight -->
+    <section id="offers-section" class="py-12 bg-[#FFD200] border-b-2 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="bg-black text-[#FFD200] px-3 py-1 rounded-full font-black text-xs tracking-widest inline-flex items-center gap-2">
+                        <i class="fa-solid fa-sparkles"></i> عروض توفير حصرية
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-black mt-2">أقوى بوكسات اللمة والتوفير</h2>
+                </div>
+                <p class="text-black text-sm max-w-md font-bold">عروض مجهزة خصيصاً للمجموعات والعائلات عشان تشبع وتقرمش بأفضل سعر في مصر!</p>
+            </div>
+
+            <!-- Offers Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Promo 1 -->
+                <div class="relative overflow-hidden bg-[#FFE54C] border-2 border-black rounded-2xl p-6 group shadow-[5px_5px_0px_#000000] flex flex-col justify-between">
+                    <span class="bg-black text-[#FFD200] text-xs font-black px-3 py-1 rounded-full absolute top-4 left-4 border border-black">وفر 80 ج.م</span>
+                    <div>
+                        <div class="text-black text-2xl mb-3"><i class="fa-solid fa-box-open"></i></div>
+                        <h3 class="text-xl font-black text-black mb-2">بوكس الصحاب (Mega Duo)</h3>
+                        <p class="text-black text-sm mb-4 leading-relaxed font-bold">2 ساندوتش سوبر كرانشي + 4 قطع دجاج استربس + 2 بطاطس مقلية + 2 كول سلو + 2 كوكاكولا.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t-2 border-black">
+                        <div>
+                            <span class="text-gray-700 line-through text-xs ml-2 font-rubik font-bold">320 ج.م</span>
+                            <span class="text-2xl font-black text-black font-rubik">240 ج.م</span>
+                        </div>
+                        <button onclick="addPromoToCart('بوكس الصحاب (Mega Duo)', 240, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80')" class="bg-black hover:bg-gray-800 text-[#FFD200] px-4 py-2 rounded-xl text-sm font-black transition-colors flex items-center gap-2 shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-plus"></i> أضف للطلب
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Promo 2 -->
+                <div class="relative overflow-hidden bg-[#FFF073] border-3 border-black rounded-2xl p-6 group shadow-[6px_6px_0px_#000000] flex flex-col justify-between">
+                    <span class="bg-black text-[#FFD200] text-xs font-black px-3 py-1 rounded-full absolute top-4 left-4 border border-black">الأكثر مبيعاً 🔥</span>
+                    <div>
+                        <div class="text-black text-2xl mb-3"><i class="fa-solid fa-crown"></i></div>
+                        <h3 class="text-xl font-black text-black mb-2">باكت العيلة الذهبي (12 قطعة)</h3>
+                        <p class="text-black text-sm mb-4 leading-relaxed font-bold">12 قطعة فرايد تشيكن مقرمشة + بطاطس حجم عائلي + 4 كول سلو كبير + 6 خبز + 4 صوصات + بيبسي لتر ونص.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t-2 border-black">
+                        <div>
+                            <span class="text-gray-700 line-through text-xs ml-2 font-rubik font-bold">680 ج.م</span>
+                            <span class="text-2xl font-black text-black font-rubik">590 ج.م</span>
+                        </div>
+                        <button onclick="addPromoToCart('باكت العيلة الذهبي (12 قطعة)', 590, 'logo.png')" class="bg-black hover:bg-gray-800 text-[#FFD200] font-black px-4 py-2 rounded-xl text-sm transition-colors flex items-center gap-2 shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-plus"></i> أضف للطلب
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Promo 3 -->
+                <div class="relative overflow-hidden bg-[#FFE54C] border-2 border-black rounded-2xl p-6 group shadow-[5px_5px_0px_#000000] flex flex-col justify-between">
+                    <span class="bg-black text-[#FFD200] text-xs font-black px-3 py-1 rounded-full absolute top-4 left-4 border border-black">عشاق الحار 🌶️</span>
+                    <div>
+                        <div class="text-black text-2xl mb-3"><i class="fa-solid fa-fire-burner"></i></div>
+                        <h3 class="text-xl font-black text-black mb-2">كومبو فاير زنجر تاور</h3>
+                        <p class="text-black text-sm mb-4 leading-relaxed font-bold">ساندوتش زنجر تاور دبل حار ومقرمش + بطاطس هالبينو شيدر + 4 أجنحة دجاج حارة + مشروب غازي.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-auto pt-4 border-t-2 border-black">
+                        <div>
+                            <span class="text-gray-700 line-through text-xs ml-2 font-rubik font-bold">260 ج.م</span>
+                            <span class="text-2xl font-black text-black font-rubik">210 ج.م</span>
+                        </div>
+                        <button onclick="addPromoToCart('كومبو فاير زنجر تاور', 210, 'buffalo-wings.jpg')" class="bg-black hover:bg-gray-800 text-[#FFD200] px-4 py-2 rounded-xl text-sm font-black transition-colors flex items-center gap-2 shadow-[2px_2px_0px_#000000]">
+                            <i class="fa-solid fa-plus"></i> أضف للطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Menu Section -->
+    <main id="menu-section" class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#FFD200]">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <span class="text-black font-black text-xs sm:text-sm tracking-wider uppercase bg-[#FFE54C] px-4 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
+                قائمة طعام FRIED CHICKEN
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black text-black mt-3">منيو الوجبات والساندوتشات المقرمشة</h2>
+            <p class="text-black mt-2 text-sm sm:text-base font-bold">
+                كل قطعة دجاج بنتبلها بخلطتنا السرية الفريدة وبتتقلي طازجة عند طلبك عشان تستمتع بأعلى قرمشة
+            </p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="mb-8 space-y-4">
+            <!-- Search Bar -->
+            <div class="relative max-w-xl mx-auto">
+                <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-black text-lg"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن وجبتك المفضلة (برجر، باكت، استربس، صوص...)" 
+                       class="w-full bg-[#FFF8B3] text-black placeholder-gray-700 pr-12 pl-10 py-3.5 rounded-2xl border-2 border-black focus:outline-none text-sm font-black shadow-[3px_3px_0px_#000000]">
+                <button id="clearSearchBtn" class="hidden absolute left-4 top-1/2 -translate-y-1/2 text-black hover:opacity-75">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Categories Pills -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none justify-start md:justify-center px-1" id="categoryButtonsContainer">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Rendered dynamically via JavaScript -->
+        </div>
+
+        <!-- Empty State if no search results -->
+        <div id="noResults" class="hidden py-16 text-center">
+            <div class="w-20 h-20 rounded-full bg-[#FFE54C] mx-auto flex items-center justify-center text-black text-3xl mb-4 border-2 border-black shadow-[3px_3px_0px_#000000]">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+            <h3 class="text-xl font-black text-black mb-1">لم نجد وجبات مطابقة لبحثك</h3>
+            <p class="text-black text-sm font-bold">جرّب البحث باسم وجبة تانية أو اختر من الأقسام فوق</p>
+            <button onclick="resetFilters()" class="mt-4 text-black underline text-sm font-black">عرض كل الوجبات</button>
+        </div>
+    </main>
+
+    <!-- Order & Delivery Live Tracker Section -->
+    <section id="tracking-section" class="py-14 bg-[#FFD200] border-t-2 border-b-2 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-black font-black text-xs sm:text-sm tracking-wider uppercase bg-[#FFE54C] px-4 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
+                    <i class="fa-solid fa-satellite-dish animate-pulse"></i> نظام التتبع الحي المباشر
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-black mt-3">تتبع وجبتك والدليفري لحظة بلحظة 🛵</h2>
+                <p class="text-black mt-2 text-sm sm:text-base font-bold">
+                    اكتب رقم طلبك أو تليفونك لمعرفة مكان الطيار وحالة تجهيز الدجاج المقرمش حتى وصوله لباب منزلك
+                </p>
+            </div>
+
+            <!-- Search Form Box -->
+            <div class="max-w-2xl mx-auto bg-[#FFE54C] p-4 sm:p-6 rounded-3xl border-2 border-black shadow-[6px_6px_0px_#000000] mb-8">
+                <form id="trackingForm" onsubmit="event.preventDefault(); trackOrder();" class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-receipt absolute right-4 top-1/2 -translate-y-1/2 text-black"></i>
+                        <input type="text" id="trackInput" placeholder="ادخل رقم الطلب (مثال: FC-9241) أو رقم تليفونك..." 
+                               class="w-full bg-[#FFF8B3] text-black placeholder-gray-700 pr-12 pl-4 py-3.5 rounded-2xl border-2 border-black focus:outline-none text-sm font-black shadow-[2px_2px_0px_#000000]">
+                    </div>
+                    <button type="submit" class="bg-black hover:bg-gray-900 text-[#FFD200] font-black px-6 py-3.5 rounded-2xl border-2 border-black shadow-[3px_3px_0px_#000000] transition-all flex items-center justify-center gap-2 text-sm whitespace-nowrap active:scale-95">
+                        <i class="fa-solid fa-magnifying-glass-location"></i>
+                        <span>تتبع الطلب</span>
+                    </button>
+                </form>
+
+                <!-- Quick Preset Test Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-4 pt-3 border-t-2 border-black text-xs font-black">
+                    <span class="text-black font-black">تجربة سريعة:</span>
+                    <button type="button" onclick="loadDemoTracker('onway')" class="bg-[#FFF8B3] hover:bg-black hover:text-[#FFD200] text-black border-2 border-black px-3 py-1 rounded-full font-black transition-colors shadow-[2px_2px_0px_#000000]">
+                        🛵 طلب في الطريق (FC-9241)
+                    </button>
+                    <button type="button" onclick="loadDemoTracker('kitchen')" class="bg-[#FFF8B3] hover:bg-black hover:text-[#FFD200] text-black border-2 border-black px-3 py-1 rounded-full font-black transition-colors shadow-[2px_2px_0px_#000000]">
+                        🍗 طلب قيد التحضير (FC-7310)
+                    </button>
+                    <button type="button" onclick="loadDemoTracker('delivered')" class="bg-[#FFF8B3] hover:bg-black hover:text-[#FFD200] text-black border-2 border-black px-3 py-1 rounded-full font-black transition-colors shadow-[2px_2px_0px_#000000]">
+                        ✅ تم التسليم (FC-6180)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Tracker Result Display Card -->
+            <div id="trackerResultCard" class="max-w-4xl mx-auto bg-[#FFE54C] border-3 border-black rounded-3xl p-6 sm:p-8 shadow-[8px_8px_0px_#000000] relative overflow-hidden">
+                <!-- Top Status Banner -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b-2 border-black gap-4">
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs text-black font-black uppercase tracking-wider">رقم الطلب</span>
+                            <span id="trackOrderId" class="bg-black text-[#FFD200] text-xs sm:text-sm font-black px-3 py-1 rounded-full font-rubik tracking-wider border border-black">#FC-9241</span>
+                        </div>
+                        <h3 id="trackOrderTitle" class="text-xl sm:text-2xl font-black text-black mt-1">الطيار في الطريق إليك ومعه وجبتك ساخنة!</h3>
+                        <p id="trackOrderAddress" class="text-xs sm:text-sm text-black font-bold mt-0.5">
+                            <i class="fa-solid fa-location-dot"></i> عنوان التوصيل: شارع الجمهورية، عمارة 14، الدور الثالث
+                        </p>
+                    </div>
+
+                    <!-- Estimated Arrival Time Badge -->
+                    <div class="bg-[#FFF8B3] border-2 border-black px-5 py-3 rounded-2xl text-center self-stretch sm:self-auto shadow-[3px_3px_0px_#000000]">
+                        <span class="text-[11px] text-black font-black block">الوقت المتبقي المقدر</span>
+                        <span id="trackTimeRemaining" class="text-xl sm:text-2xl font-black text-black font-rubik">14 دقيقة ⏱️</span>
+                    </div>
+                </div>
+
+                <!-- Interactive 5-Step Status Timeline -->
+                <div class="py-8">
+                    <!-- Progress Step Items -->
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 relative">
+                        <!-- Step 1 -->
+                        <div class="step-item text-center flex flex-col items-center" id="step1">
+                            <div class="step-icon w-12 h-12 rounded-2xl bg-black text-[#FFD200] border-2 border-black flex items-center justify-center text-lg mb-2 shadow-[2px_2px_0px_#000000]">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <span class="text-xs font-black text-black block">تم الاستلام</span>
+                            <span class="step-time text-[10px] text-black font-bold">10:15 ص</span>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step-item text-center flex flex-col items-center" id="step2">
+                            <div class="step-icon w-12 h-12 rounded-2xl bg-black text-[#FFD200] border-2 border-black flex items-center justify-center text-lg mb-2 shadow-[2px_2px_0px_#000000]">
+                                <i class="fa-solid fa-fire-burner"></i>
+                            </div>
+                            <span class="text-xs font-black text-black block">في القلاية والمطبخ</span>
+                            <span class="step-time text-[10px] text-black font-bold">10:20 ص</span>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="step-item text-center flex flex-col items-center" id="step3">
+                            <div class="step-icon w-12 h-12 rounded-2xl bg-black text-[#FFD200] border-2 border-black flex items-center justify-center text-lg mb-2 shadow-[2px_2px_0px_#000000]">
+                                <i class="fa-solid fa-box-open"></i>
+                            </div>
+                            <span class="text-xs font-black text-black block">تغليف حراري</span>
+                            <span class="step-time text-[10px] text-black font-bold">10:32 ص</span>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="step-item text-center flex flex-col items-center" id="step4">
+                            <div class="step-icon w-12 h-12 rounded-2xl bg-black text-[#FFD200] border-2 border-black active-step-pulse flex items-center justify-center text-lg mb-2 shadow-[3px_3px_0px_#000000]">
+                                <i class="fa-solid fa-motorcycle anim-bike"></i>
+                            </div>
+                            <span class="text-xs font-black text-black block">الطيار في الطريق</span>
+                            <span class="step-time text-[10px] text-black font-black bg-[#FFF8B3] px-2 py-0.5 rounded-full border border-black mt-0.5">الآن 🛵</span>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="step-item text-center flex flex-col items-center opacity-40" id="step5">
+                            <div class="step-icon w-12 h-12 rounded-2xl bg-[#FFF8B3] text-black border-2 border-black flex items-center justify-center text-lg mb-2">
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </div>
+                            <span class="text-xs font-black text-black block">تم التسليم</span>
+                            <span class="step-time text-[10px] text-black font-bold">قريباً</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Driver Information & Visual Route Simulator -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-6 border-t-2 border-black items-center">
+                    <!-- Driver Info Card -->
+                    <div class="md:col-span-5 bg-[#FFF8B3] p-4 rounded-2xl border-2 border-black flex items-center gap-4 shadow-[3px_3px_0px_#000000]">
+                        <div class="w-14 h-14 rounded-2xl bg-black text-[#FFD200] border-2 border-black flex items-center justify-center text-2xl shadow-sm">
+                            <i class="fa-solid fa-helmet-safety"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <span class="text-[11px] text-black font-bold">كابتن التوصيل:</span>
+                            <h4 id="trackDriverName" class="text-base font-black text-black truncate">كابتن زياد إبراهيم 🛵</h4>
+                            <p id="trackDriverDetails" class="text-[11px] text-black font-bold">موتوسيكل سريع بشنطة عزل حراري</p>
+                        </div>
+                        <a href="tel:056465156484" class="bg-black hover:bg-gray-800 text-[#FFD200] p-3 rounded-xl border border-black shadow-sm text-sm transition-transform active:scale-95" title="اتصل بالطيار">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+
+                    <!-- Visual Route Simulator -->
+                    <div class="md:col-span-7 bg-[#FFF8B3] p-4 rounded-2xl border-2 border-black shadow-[3px_3px_0px_#000000]">
+                        <div class="flex items-center justify-between text-xs font-black text-black mb-2">
+                            <span><i class="fa-solid fa-store"></i> فرع FRIED CHICKEN</span>
+                            <span id="trackDistance" class="font-rubik"><i class="fa-solid fa-road"></i> مسافة 2.4 كم</span>
+                            <span><i class="fa-solid fa-location-dot"></i> عنوان العميل</span>
+                        </div>
+                        <!-- Animated Progress Bar Track -->
+                        <div class="relative w-full h-3.5 bg-yellow-200 border border-black rounded-full overflow-hidden">
+                            <div id="trackProgressBar" class="h-full bg-black rounded-full transition-all duration-1000" style="width: 75%;"></div>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] text-black font-black mt-1.5">
+                            <span id="trackStartTime">خرج من المطعم 10:35 ص</span>
+                            <span id="trackLiveStatus" class="font-black"><i class="fa-solid fa-motorcycle anim-bike"></i> في الطريق (شارع النصر)</span>
+                            <span id="trackEstimatedTime">الوصول المتوقع 10:50 ص</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us & Quality Guarantee Section -->
+    <section class="py-14 bg-[#FFD200] border-b-2 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6 rounded-2xl bg-[#FFE54C] border-2 border-black shadow-[4px_4px_0px_#000000]">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-black text-[#FFD200] flex items-center justify-center text-2xl mb-4 border-2 border-black">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <h4 class="font-black text-black text-lg mb-1">دجاج متبل طازج</h4>
+                    <p class="text-black text-xs font-bold leading-relaxed">دجاج طازج مذبوح حلال، متبل لمدة 24 ساعة بأسرار خلطتنا المميزة.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-[#FFE54C] border-2 border-black shadow-[4px_4px_0px_#000000]">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-black text-[#FFD200] flex items-center justify-center text-2xl mb-4 border-2 border-black">
+                        <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <h4 class="font-black text-black text-lg mb-1">قرمشة حقيقية 100%</h4>
+                    <p class="text-black text-xs font-bold leading-relaxed">قلي بتقنية الضغط العالي اللي بتحافظ على طراوة الدجاج من جوه وقرمشته الخارقة من بره.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-[#FFE54C] border-2 border-black shadow-[4px_4px_0px_#000000]">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-black text-[#FFD200] flex items-center justify-center text-2xl mb-4 border-2 border-black">
+                        <i class="fa-solid fa-motorcycle"></i>
+                    </div>
+                    <h4 class="font-black text-black text-lg mb-1">توصيل دليفري سريع</h4>
+                    <p class="text-black text-xs font-bold leading-relaxed">تغليف حراري خاص بيحافظ على القرمشة وسخونة الوجبة كأنها لسه طالعة من القلاية.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-[#FFE54C] border-2 border-black shadow-[4px_4px_0px_#000000]">
+                    <div class="w-14 h-14 mx-auto rounded-2xl bg-black text-[#FFD200] flex items-center justify-center text-2xl mb-4 border-2 border-black">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h4 class="font-black text-black text-lg mb-1">خدمة عملاء 24/7</h4>
+                    <p class="text-black text-xs font-bold leading-relaxed">جاهزون لاستقبال طلباتكم واستفساراتكم على الرقم: 056465156484 طوال الأسبوع.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews-section" class="py-14 bg-[#FFD200] border-b-2 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="bg-black text-[#FFD200] px-3.5 py-1 rounded-full font-black text-xs tracking-wider uppercase">رأي عملائنا الكرام</span>
+                <h2 class="text-3xl font-black text-black mt-2">الأكيلة قالوا إيه عن FRIED CHICKEN؟</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-[#FFE54C] border-2 border-black p-6 rounded-2xl shadow-[4px_4px_0px_#000000]">
+                    <div class="flex items-center gap-1 text-black text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-black text-sm leading-relaxed mb-4 font-bold">"أفضل فرايد تشيكن جربته بدون أي مبالغة! الدجاج نظيف جداً ومقرمش مش شارب زيت إطلاقاً، وساندوتش الزنجر حكايته حكاية والصوصات خطيرة!"</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-black text-[#FFD200] font-black flex items-center justify-center">م.ع</div>
+                        <div>
+                            <h5 class="text-black font-black text-sm">محمد عبد الرحمن</h5>
+                            <span class="text-xs text-gray-800 font-bold">عميل دائم</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-[#FFE54C] border-2 border-black p-6 rounded-2xl shadow-[4px_4px_0px_#000000]">
+                    <div class="flex items-center gap-1 text-black text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-black text-sm leading-relaxed mb-4 font-bold">"طلبنا باكت الـ 12 قطعة لعزومة عائلية، الوجبة وصلت سخنة جداً ومقرمشة والكل شكر فيها. سرعة التوصيل والأمانة محترمة جداً شكراً ليكم."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-black text-[#FFD200] font-black flex items-center justify-center">س.خ</div>
+                        <div>
+                            <h5 class="text-black font-black text-sm">سارة خالد</h5>
+                            <span class="text-xs text-gray-800 font-bold">طلب باكت عائلي</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-[#FFE54C] border-2 border-black p-6 rounded-2xl shadow-[4px_4px_0px_#000000]">
+                    <div class="flex items-center gap-1 text-black text-sm mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-black text-sm leading-relaxed mb-4 font-bold">"أصابع الاستربس خرافية والصوص السري والرانش إدمان! والبطاطس الحلزونية تحفة بجد. طلبت أونلاين على الواتساب ووصلني في أقل من 35 دقيقة."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-black text-[#FFD200] font-black flex items-center justify-center">أ.ح</div>
+                        <div>
+                            <h5 class="text-black font-black text-sm">أحمد حسن</h5>
+                            <span class="text-xs text-gray-800 font-bold">طلب ساندوتشات واستربس</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branch, Working Hours & Direct Order CTA (With Fake Location & Exterior Photo) -->
+    <section id="contact-section" class="py-14 bg-[#FFD200] border-b-2 border-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-black font-black text-xs sm:text-sm tracking-wider uppercase bg-[#FFE54C] px-4 py-1.5 rounded-full border-2 border-black shadow-[2px_2px_0px_#000000]">
+                    <i class="fa-solid fa-store"></i> فرعنا وموقعنا الرئيسي
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-black mt-3">تفضل بزيارتنا أو اطلب دليفري لباب بيتك</h2>
+                <p class="text-black mt-2 text-sm sm:text-base font-bold">
+                    أجواء ممتعة وصالة طعام مكيفة تسع جميع العائلات، مع أسرع خدمة تجهيز وتوصيل
+                </p>
+            </div>
+
+            <!-- Main Branch Showcase Card -->
+            <div class="bg-[#FFE54C] rounded-3xl border-3 border-black p-6 sm:p-8 relative overflow-hidden shadow-[8px_8px_0px_#000000]">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Right/Top: Combined Restaurant Photos (Interior & Exterior) right next to location -->
+                    <div class="lg:col-span-6 space-y-3">
+                        <div class="relative overflow-hidden rounded-3xl border-3 border-black shadow-[5px_5px_0px_#000000] group cursor-pointer" onclick="openCurrentFeaturedPhoto()">
+                            <img id="featuredBranchImg" 
+                                 src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" 
+                                 alt="صورة المطعم داخلياً وخارجياً" 
+                                 class="w-full h-[320px] sm:h-[370px] object-cover group-hover:scale-105 transition-all duration-300">
+                            
+                            <!-- Overlay Badge & Zoom Icon -->
+                            <div id="featuredBranchBadge" class="absolute top-4 right-4 bg-black text-[#FFD200] border-2 border-black px-3.5 py-1.5 rounded-full text-xs font-black shadow-md flex items-center gap-2">
+                                <i class="fa-solid fa-camera"></i>
+                                <span id="featuredBranchBadgeText">الواجهة الخارجية للمطعم ☀️</span>
+                            </div>
+
+                            <div class="absolute top-4 left-4 bg-[#FFD200] text-black border-2 border-black w-9 h-9 rounded-full flex items-center justify-center text-sm font-black shadow-md opacity-85 group-hover:opacity-100 group-hover:scale-110 transition-all">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+
+                            <!-- Bottom Floating Feature -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-[#FFD200] border-2 border-black p-3 rounded-2xl shadow-lg flex items-center justify-between text-xs text-black font-black">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-utensils"></i> صالة عائلية فسيحة</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-wifi"></i> واي فاي مجاني</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-square-parking"></i> باركينج مجاني</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini Thumbnail Switcher Bar for all interior & exterior views -->
+                        <div class="bg-[#FFF8B3] border-2 border-black p-2 rounded-2xl flex items-center justify-between gap-1.5 overflow-x-auto scrollbar-none shadow-[2px_2px_0px_#000000]">
+                            <button type="button" onclick="switchBranchPhoto(0)" class="branch-thumb active shrink-0 flex-1 min-w-[55px] h-12 rounded-xl border-2 border-black overflow-hidden relative transition-all" title="الواجهة الخارجية">
+                                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=200&q=70" class="w-full h-full object-cover">
+                            </button>
+                            <button type="button" onclick="switchBranchPhoto(1)" class="branch-thumb shrink-0 flex-1 min-w-[55px] h-12 rounded-xl border-2 border-black overflow-hidden relative opacity-70 hover:opacity-100 transition-all" title="الصالة العائلية">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=200&q=70" class="w-full h-full object-cover">
+                            </button>
+                            <button type="button" onclick="switchBranchPhoto(2)" class="branch-thumb shrink-0 flex-1 min-w-[55px] h-12 rounded-xl border-2 border-black overflow-hidden relative opacity-70 hover:opacity-100 transition-all" title="كابينات خاصة">
+                                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=200&q=70" class="w-full h-full object-cover">
+                            </button>
+                            <button type="button" onclick="switchBranchPhoto(3)" class="branch-thumb shrink-0 flex-1 min-w-[55px] h-12 rounded-xl border-2 border-black overflow-hidden relative opacity-70 hover:opacity-100 transition-all" title="كاونتر الاستلام">
+                                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=200&q=70" class="w-full h-full object-cover">
+                            </button>
+                            <button type="button" onclick="switchBranchPhoto(4)" class="branch-thumb shrink-0 flex-1 min-w-[55px] h-12 rounded-xl border-2 border-black overflow-hidden relative opacity-70 hover:opacity-100 transition-all" title="التراس الخارجي">
+                                <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=200&q=70" class="w-full h-full object-cover">
+                            </button>
+                            <button type="button" onclick="switchBranchPhoto(5)" class="branch-thumb shrink-0 flex-1 min-w-[55px] h-12 rounded-xl border-2 border-black overflow-hidden relative opacity-70 hover:opacity-100 transition-all" title="المطبخ المفتوح">
+                                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=200&q=70" class="w-full h-full object-cover">
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between text-[11px] font-black text-black px-1">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-arrows-rotate"></i> اضغط على أي مصغّر للتبديل بين صور المطعم</span>
+                            <span class="bg-black text-[#FFD200] px-2 py-0.5 rounded-md text-[10px]">داخلي وخارجي</span>
+                        </div>
+                    </div>
+
+                    <!-- Left/Content: Branch Location & Contact Info -->
+                    <div class="lg:col-span-6 space-y-5 text-right">
+                        <div>
+                            <div class="inline-flex items-center gap-2 bg-black text-[#FFD200] px-3.5 py-1 rounded-full text-xs font-black border border-black mb-2">
+                                <i class="fa-solid fa-circle-check"></i> مفتوح الآن لاستقبالكم
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-black text-black">
+                                مطعم FRIED CHICKEN - الفرع الرئيسي
+                            </h3>
+                            <p class="text-black text-sm leading-relaxed mt-2 font-bold">
+                                يقع فرعنا في أكثر المواقع حيوية وسهولة في الوصول، مع صالة طعام واسعة ومجهزة بأحدث وسائل الراحة بالإضافة لخدمة الاستلام السريع والتوصيل.
+                            </p>
+                        </div>
+
+                        <!-- Info Cards Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs text-black">
+                            <!-- Location Card -->
+                            <div class="bg-[#FFF8B3] p-4 rounded-2xl border-2 border-black shadow-[3px_3px_0px_#000000] sm:col-span-2">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-black text-[#FFD200] flex items-center justify-center text-lg shadow-sm shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-black font-black block mb-0.5">عنوان الفرع والموقع:</span>
+                                        <p class="text-black font-black text-sm leading-relaxed">
+                                            45 شارع النصر الرئيسي، تقاطع مكرم عبيد، بجوار سيتي سنتر مول - مدينة نصر، القاهرة
+                                        </p>
+                                        <span class="text-[11px] text-gray-800 font-bold block mt-1">علامة مميزة: أمام محطة وقود إكسون موبيل مباشرة</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phone Card -->
+                            <div class="bg-[#FFF8B3] p-4 rounded-2xl border-2 border-black shadow-[3px_3px_0px_#000000]">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-black text-[#FFD200] flex items-center justify-center text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-black font-bold block mb-0.5">أرقام التليفون والحجز:</span>
+                                        <a href="tel:056465156484" class="text-black font-black text-base font-rubik hover:underline" dir="ltr">
+                                             056465156484
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Working Hours Card -->
+                            <div class="bg-[#FFF8B3] p-4 rounded-2xl border-2 border-black shadow-[3px_3px_0px_#000000]">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-black text-[#FFD200] flex items-center justify-center text-base shadow-sm shrink-0">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-black font-bold block mb-0.5">مواعيد العمل:</span>
+                                        <span class="text-black font-black text-xs block leading-tight">
+                                            يومياً 11:00 ص - 2:00 صباحاً
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <a href="tel:056465156484" class="flex-1 bg-[#FFE54C] hover:bg-[#FFF073] text-black font-black py-3.5 px-6 rounded-2xl shadow-[4px_4px_0px_#000000] border-2 border-black flex items-center justify-center gap-2.5 text-sm transition-transform active:scale-95">
+                                <i class="fa-solid fa-phone-volume text-black"></i>
+                                <span>اتصل الآن: <span class="font-rubik text-black font-black text-base" dir="ltr">056465156484</span></span>
+                            </a>
+                            <button onclick="openCheckoutModal()" class="flex-1 bg-[#FFF8B3] hover:bg-white text-black font-black py-3.5 px-6 rounded-2xl shadow-[4px_4px_0px_#000000] border-2 border-black flex items-center justify-center gap-2.5 text-sm transition-transform active:scale-95">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>اطلب دليفري سريع</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#FFE54C] border-t-2 border-black text-black py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b-2 border-black">
+                <div class="flex items-center gap-3">
+                    <img src="logo.png" onerror="this.src='file:///C:/Users/lap%20shop/.gemini/antigravity/brain/4ba04367-340e-4fc5-b6b9-41956ed42733/.user_uploaded/media_1793693864574_e6d06f92.png'" alt="FRIED CHICKEN Logo" class="w-14 h-14 rounded-2xl object-cover border-2 border-black shadow-[2px_2px_0px_#000000] bg-[#FFD200]">
+                    <div>
+                        <span class="font-rubik font-black text-xl text-black">FRIED CHICKEN</span>
+                        <p class="text-xs text-black font-bold">45 شارع النصر، مدينة نصر، القاهرة &copy; 2026</p>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-left text-sm space-y-2">
+                    <div>
+                        <p class="text-black font-black mb-0.5">خدمة التوصيل السريع والدعم</p>
+                        <p class="text-black font-rubik text-base font-black" dir="ltr">056465156484</p>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-end gap-3 text-lg text-black font-bold">
+                        <span class="text-xs font-black">طرق الدفع:</span>
+                        <i class="fa-solid fa-bolt hover:opacity-75" title="انستا باي InstaPay"></i>
+                        <i class="fa-solid fa-wallet hover:opacity-75" title="فودافون كاش Vodafone Cash"></i>
+                        <i class="fa-brands fa-cc-mastercard hover:opacity-75" title="ماستر كارد MasterCard"></i>
+                        <i class="fa-brands fa-cc-visa hover:opacity-75" title="فيزا Visa"></i>
+                        <i class="fa-solid fa-money-bill-wave hover:opacity-75" title="كاش عند الاستلام"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-black font-black gap-4">
+                <p>جميع الحقوق محفوظة لمطعم FRIED CHICKEN &copy; 2026</p>
+                <div class="flex items-center gap-4">
+                    <span>دجاج طازج 100%</span>
+                    <span>•</span>
+                    <span>أعلى معايير النظافة والجودة</span>
+                    <span>•</span>
+                    <span>طعم يستحق التجربة</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer (Yellow background, Black text & borders) -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+        <!-- Backdrop -->
+        <div id="cartBackdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300"></div>
+
+        <div class="fixed inset-y-0 left-0 max-w-full flex pl-0">
+            <div id="cartPanel" class="w-screen max-w-md bg-[#FFD200] border-r-3 border-black shadow-2xl flex flex-col transform -translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto">
+                <!-- Cart Header -->
+                <div class="p-5 border-b-2 border-black flex items-center justify-between bg-[#FFE54C]">
+                    <div class="flex items-center gap-3">
+                        <img src="logo.png" onerror="this.src='file:///C:/Users/lap%20shop/.gemini/antigravity/brain/4ba04367-340e-4fc5-b6b9-41956ed42733/.user_uploaded/media_1793693864574_e6d06f92.png'" alt="Logo" class="w-11 h-11 rounded-xl object-cover border-2 border-black shadow-sm bg-[#FFD200]">
+                        <div>
+                            <h3 class="text-lg font-black text-black">سلة طلباتك</h3>
+                            <p class="text-xs text-black font-bold" id="cartSubtitle">0 وجبات مضافة</p>
+                        </div>
+                    </div>
+                    <button id="closeCartBtn" class="text-black hover:bg-black hover:text-[#FFD200] p-2 rounded-xl border border-black transition-colors">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cartItemsList" class="flex-1 overflow-y-auto p-4 space-y-3 bg-[#FFD200]">
+                    <!-- Items injected via JS -->
+                </div>
+
+                <!-- Empty Cart State -->
+                <div id="cartEmptyState" class="hidden flex-1 flex flex-col items-center justify-center p-8 text-center bg-[#FFD200]">
+                    <div class="w-24 h-24 rounded-full bg-[#FFE54C] flex items-center justify-center text-black text-4xl mb-4 border-2 border-black shadow-[3px_3px_0px_#000000]">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <h4 class="text-lg font-black text-black mb-1">سلتك لسه فاضية!</h4>
+                    <p class="text-black text-xs font-bold max-w-xs mb-6">اختار من وجباتنا وساندوتشاتنا المقرمشة ودلع نفسك</p>
+                    <button onclick="closeCart()" class="bg-black hover:bg-gray-800 text-[#FFD200] px-6 py-2.5 rounded-xl text-sm font-black transition-colors border-2 border-black shadow-[2px_2px_0px_#000000]">
+                        تصفح المنيو الآن
+                    </button>
+                </div>
+
+                <!-- Cart Footer & Checkout -->
+                <div id="cartFooter" class="p-5 border-t-2 border-black bg-[#FFE54C] space-y-3">
+                    <div class="space-y-1.5 text-sm">
+                        <div class="flex justify-between text-black text-xs font-bold">
+                            <span>المجموع الفرعي:</span>
+                            <span id="cartSubtotal" class="font-black text-black font-rubik">0 ج.م</span>
+                        </div>
+                        <div class="flex justify-between text-black text-xs font-bold">
+                            <span>خدمة التوصيل:</span>
+                            <span id="cartDeliveryFee" class="text-black font-black">20 ج.م</span>
+                        </div>
+                        <div class="border-t-2 border-black pt-2 flex justify-between items-center text-base">
+                            <span class="font-black text-black">الإجمالي النهائي:</span>
+                            <span id="cartTotal" class="text-2xl font-black text-black font-rubik">0 ج.م</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openCheckoutModal()" class="w-full bg-black hover:bg-gray-900 text-[#FFD200] font-black py-3.5 px-4 rounded-xl shadow-[3px_3px_0px_#000000] border-2 border-black flex items-center justify-center gap-2 text-base transition-all">
+                        <span>إتمام الطلب الآن</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Item Details & Customization Modal -->
+    <div id="itemModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-[#FFE54C] border-3 border-black rounded-3xl max-w-lg w-full overflow-hidden shadow-[8px_8px_0px_#000000] transform scale-95 transition-transform duration-300" id="itemModalCard">
+            <!-- Modal Image Header -->
+            <div class="relative h-56 sm:h-64 overflow-hidden border-b-2 border-black">
+                <img id="modalItemImg" src="" alt="Meal" class="w-full h-full object-cover">
+                <button onclick="closeItemModal()" class="absolute top-4 left-4 bg-[#FFD200] hover:bg-black hover:text-[#FFD200] text-black w-9 h-9 rounded-full flex items-center justify-center border-2 border-black shadow-md transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+                <span id="modalItemBadge" class="absolute bottom-4 right-4 bg-black text-[#FFD200] text-xs font-black px-3 py-1 rounded-full border border-black shadow-md"></span>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 space-y-5 bg-[#FFE54C]">
+                <div>
+                    <div class="flex justify-between items-start gap-3">
+                        <h3 id="modalItemTitle" class="text-2xl font-black text-black"></h3>
+                        <span id="modalItemPrice" class="text-2xl font-black text-black font-rubik whitespace-nowrap"></span>
+                    </div>
+                    <p id="modalItemDesc" class="text-black text-sm mt-2 leading-relaxed font-bold"></p>
+                </div>
+
+                <!-- Customization: Spicy or Regular -->
+                <div class="bg-[#FFF8B3] p-3.5 rounded-2xl border-2 border-black">
+                    <label class="block text-xs font-black text-black mb-2">اختر النكهة والتتبيلة المفضلة:</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="flex items-center gap-2 p-2.5 rounded-xl border-2 border-black cursor-pointer bg-[#FFE54C] has-[:checked]:bg-black has-[:checked]:text-[#FFD200] transition-all">
+                            <input type="radio" name="spicePreference" value="عادي ومقرمش" checked class="accent-black">
+                            <span class="text-sm font-black">عادي مقرمش 🍗</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-2.5 rounded-xl border-2 border-black cursor-pointer bg-[#FFE54C] has-[:checked]:bg-black has-[:checked]:text-[#FFD200] transition-all">
+                            <input type="radio" name="spicePreference" value="سبايسي حار" class="accent-black">
+                            <span class="text-sm font-black">سبايسي حار 🌶️</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Special Instructions -->
+                <div>
+                    <label class="block text-xs font-black text-black mb-1">ملاحظات خاصة للشيف (اختياري):</label>
+                    <input type="text" id="modalItemNotes" placeholder="مثال: زيادة صوص، بدون مخلل، خبز محمص..." 
+                           class="w-full bg-[#FFF8B3] text-black placeholder-gray-700 px-3.5 py-2.5 rounded-xl border-2 border-black focus:outline-none text-xs font-bold shadow-sm">
+                </div>
+
+                <!-- Quantity and Add Button -->
+                <div class="flex items-center gap-4 pt-2">
+                    <div class="flex items-center bg-[#FFF8B3] border-2 border-black rounded-xl p-1 shadow-[2px_2px_0px_#000000]">
+                        <button onclick="changeModalQuantity(-1)" class="w-9 h-9 rounded-lg hover:bg-black hover:text-[#FFD200] text-black font-black flex items-center justify-center">
+                            <i class="fa-solid fa-minus text-xs"></i>
+                        </button>
+                        <span id="modalQuantity" class="w-10 text-center font-black font-rubik text-black text-base">1</span>
+                        <button onclick="changeModalQuantity(1)" class="w-9 h-9 rounded-lg hover:bg-black hover:text-[#FFD200] text-black font-black flex items-center justify-center">
+                            <i class="fa-solid fa-plus text-xs"></i>
+                        </button>
+                    </div>
+
+                    <button onclick="confirmAddToCart()" class="flex-1 bg-black hover:bg-gray-900 text-[#FFD200] font-black py-3.5 rounded-xl border-2 border-black shadow-[3px_3px_0px_#000000] transition-transform active:scale-95 flex items-center justify-center gap-2 text-base">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>إضافة إلى السلة</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout / Send Order Modal -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-[#FFE54C] border-3 border-black rounded-3xl max-w-lg w-full overflow-hidden shadow-[8px_8px_0px_#000000] transform scale-95 transition-transform duration-300" id="checkoutModalCard">
+            <!-- Header -->
+            <div class="p-5 border-b-2 border-black bg-[#FFD200] flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="logo.png" onerror="this.src='file:///C:/Users/lap%20shop/.gemini/antigravity/brain/4ba04367-340e-4fc5-b6b9-41956ed42733/.user_uploaded/media_1793693864574_e6d06f92.png'" alt="Logo" class="w-11 h-11 rounded-xl object-cover border-2 border-black shadow-sm bg-[#FFD200]">
+                    <div>
+                        <h3 class="text-lg font-black text-black">تأكيد طلبك وتوصيله</h3>
+                        <p class="text-xs text-black font-bold">اختر طريقة الدفع المفضلة لديك</p>
+                    </div>
+                </div>
+                <button onclick="closeCheckoutModal()" class="text-black hover:bg-black hover:text-[#FFD200] p-2 rounded-xl border border-black transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Form & Order Details -->
+            <div class="p-6 space-y-4 max-h-[75vh] overflow-y-auto bg-[#FFE54C]">
+                <!-- Customer Name -->
+                <div>
+                    <label class="block text-xs font-black text-black mb-1">الاسم الكريم <span class="text-red-600">*</span></label>
+                    <input type="text" id="custName" placeholder="اكتب اسمك هنا" class="w-full bg-[#FFF8B3] border-2 border-black text-black placeholder-gray-700 text-sm font-bold rounded-xl px-4 py-2.5 focus:outline-none shadow-[2px_2px_0px_#000000]">
+                </div>
+
+                <!-- Customer Phone -->
+                <div>
+                    <label class="block text-xs font-black text-black mb-1">رقم تليفونك للتواصل <span class="text-red-600">*</span></label>
+                    <input type="tel" id="custPhone" placeholder="مثال: 01xxxxxxxxx" class="w-full bg-[#FFF8B3] border-2 border-black text-black placeholder-gray-700 text-sm font-bold rounded-xl px-4 py-2.5 focus:outline-none shadow-[2px_2px_0px_#000000]" dir="ltr">
+                </div>
+
+                <!-- Customer Address -->
+                <div>
+                    <label class="block text-xs font-black text-black mb-1">عنوان التوصيل بالتفصيل <span class="text-red-600">*</span></label>
+                    <textarea id="custAddress" rows="2" placeholder="المنطقة، اسم الشارع، رقم العمارة، رقم الشقة أو علامة مميزة..." class="w-full bg-[#FFF8B3] border-2 border-black text-black placeholder-gray-700 text-sm font-bold rounded-xl px-4 py-2.5 focus:outline-none shadow-[2px_2px_0px_#000000]"></textarea>
+                </div>
+
+                <!-- Payment Method Selection -->
+                <div class="space-y-3 pt-1">
+                    <label class="block text-xs font-black text-black">اختر طريقة الدفع المناسبة لك <span class="text-red-600">*</span></label>
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <!-- InstaPay -->
+                        <label class="relative flex flex-col p-3 rounded-2xl border-2 border-black cursor-pointer bg-[#FFF8B3] has-[:checked]:bg-black has-[:checked]:text-[#FFD200] transition-all shadow-[2px_2px_0px_#000000]">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-black text-xs flex items-center gap-1.5">
+                                    <i class="fa-solid fa-bolt"></i> انستا باي
+                                </span>
+                                <input type="radio" name="paymentMethod" value="instapay" onchange="togglePaymentDetails()" class="accent-black" checked>
+                            </div>
+                            <span class="text-[10px] font-bold">تحويل فوري لحظي InstaPay</span>
+                        </label>
+
+                        <!-- Vodafone Cash -->
+                        <label class="relative flex flex-col p-3 rounded-2xl border-2 border-black cursor-pointer bg-[#FFF8B3] has-[:checked]:bg-black has-[:checked]:text-[#FFD200] transition-all shadow-[2px_2px_0px_#000000]">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-black text-xs flex items-center gap-1.5">
+                                    <i class="fa-solid fa-wallet"></i> فودافون كاش
+                                </span>
+                                <input type="radio" name="paymentMethod" value="vodafone_cash" onchange="togglePaymentDetails()" class="accent-black">
+                            </div>
+                            <span class="text-[10px] font-bold">تحويل محفظة كاش</span>
+                        </label>
+
+                        <!-- MasterCard / Visa -->
+                        <label class="relative flex flex-col p-3 rounded-2xl border-2 border-black cursor-pointer bg-[#FFF8B3] has-[:checked]:bg-black has-[:checked]:text-[#FFD200] transition-all shadow-[2px_2px_0px_#000000]">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-black text-xs flex items-center gap-1.5">
+                                    <i class="fa-brands fa-cc-mastercard"></i> ماستر كارد / فيزا
+                                </span>
+                                <input type="radio" name="paymentMethod" value="card" onchange="togglePaymentDetails()" class="accent-black">
+                            </div>
+                            <span class="text-[10px] font-bold">بطاقات بنكية / POS</span>
+                        </label>
+
+                        <!-- Cash on Delivery -->
+                        <label class="relative flex flex-col p-3 rounded-2xl border-2 border-black cursor-pointer bg-[#FFF8B3] has-[:checked]:bg-black has-[:checked]:text-[#FFD200] transition-all shadow-[2px_2px_0px_#000000]">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="font-black text-xs flex items-center gap-1.5">
+                                    <i class="fa-solid fa-money-bill-wave"></i> كاش عند الاستلام
+                                </span>
+                                <input type="radio" name="paymentMethod" value="cash" onchange="togglePaymentDetails()" class="accent-black">
+                            </div>
+                            <span class="text-[10px] font-bold">الدفع نقداً للمندوب</span>
+                        </label>
+                    </div>
+
+                    <!-- Dynamic Details Box based on selected method -->
+                    <!-- InstaPay Box -->
+                    <div id="instapayDetails" class="bg-[#FFF8B3] border-2 border-black rounded-2xl p-3.5 space-y-2 text-xs">
+                        <div class="flex items-center justify-between">
+                            <span class="text-black font-black flex items-center gap-1.5">
+                                <i class="fa-solid fa-bolt"></i> رقم حساب انستا باي (IPA):
+                            </span>
+                            <div class="flex items-center gap-2">
+                                <span class="font-rubik text-black font-black select-all" dir="ltr">056465156484</span>
+                                <button type="button" onclick="copyText('056465156484', 'تم نسخ رقم حساب انستا باي')" class="bg-black text-[#FFD200] px-2.5 py-1 rounded-lg text-[11px] font-black transition-colors flex items-center gap-1">
+                                    <i class="fa-solid fa-copy"></i> نسخ
+                                </button>
+                            </div>
+                        </div>
+                        <input type="text" id="instapaySender" placeholder="اسم حسابك أو رقم العملية على انستا باي (لتأكيد التحويل)" class="w-full bg-[#FFE54C] border-2 border-black rounded-xl px-3 py-2 text-black placeholder-gray-700 text-xs font-bold focus:outline-none">
+                    </div>
+
+                    <!-- Vodafone Cash Box -->
+                    <div id="vodafoneDetails" class="hidden bg-[#FFF8B3] border-2 border-black rounded-2xl p-3.5 space-y-2 text-xs">
+                        <div class="flex items-center justify-between">
+                            <span class="text-black font-black flex items-center gap-1.5">
+                                <i class="fa-solid fa-mobile-screen-button"></i> رقم محفظة فودافون كاش:
+                            </span>
+                            <div class="flex items-center gap-2">
+                                <span class="font-rubik text-black font-black select-all" dir="ltr">056465156484</span>
+                                <button type="button" onclick="copyText('056465156484', 'تم نسخ رقم محفظة فودافون كاش')" class="bg-black text-[#FFD200] px-2.5 py-1 rounded-lg text-[11px] font-black transition-colors flex items-center gap-1">
+                                    <i class="fa-solid fa-copy"></i> نسخ
+                                </button>
+                            </div>
+                        </div>
+                        <input type="tel" id="vodafoneSender" placeholder="رقم المحفظة التي قمت بالتحويل منها (مثال: 010xxxxxxxx)" class="w-full bg-[#FFE54C] border-2 border-black rounded-xl px-3 py-2 text-black placeholder-gray-700 text-xs font-bold focus:outline-none" dir="ltr">
+                    </div>
+
+                    <!-- Card / MasterCard Box -->
+                    <div id="cardDetails" class="hidden bg-[#FFF8B3] border-2 border-black rounded-2xl p-3.5 space-y-2.5 text-xs">
+                        <div class="flex items-center justify-between text-black font-black">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-brands fa-cc-mastercard text-base"></i> خيار الدفع بالبطاقة البنكية:
+                            </span>
+                            <div class="flex items-center gap-1.5 text-lg">
+                                <i class="fa-brands fa-cc-mastercard" title="MasterCard"></i>
+                                <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#FFE54C] border-2 border-black cursor-pointer font-bold">
+                                <input type="radio" name="cardOption" value="pos_delivery" onchange="toggleCardInputs()" checked class="accent-black">
+                                <span>الدفع ببطاقة ماستر كارد / فيزا مع المندوب عند الاستلام (ماكينة POS)</span>
+                            </label>
+                            <label class="flex items-center gap-2 p-2 rounded-xl bg-[#FFE54C] border-2 border-black cursor-pointer font-bold">
+                                <input type="radio" name="cardOption" value="online_card" onchange="toggleCardInputs()" class="accent-black">
+                                <span>الدفع أونلاين ببطاقة ماستر كارد / فيزا</span>
+                            </label>
+                        </div>
+                        <div id="onlineCardInputs" class="hidden space-y-2 pt-1 border-t-2 border-black">
+                            <input type="text" id="cardNumberInput" placeholder="رقم بطاقة ماستر كارد / فيزا (16 رقم)" maxlength="19" class="w-full bg-[#FFE54C] border-2 border-black rounded-xl px-3 py-2 text-black text-xs font-rubik tracking-wider" dir="ltr">
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" id="cardExpiryInput" placeholder="MM/YY" maxlength="5" class="bg-[#FFE54C] border-2 border-black rounded-xl px-3 py-2 text-black text-xs text-center font-rubik" dir="ltr">
+                                <input type="password" id="cardCvvInput" placeholder="CVV (3 أرقام)" maxlength="3" class="bg-[#FFE54C] border-2 border-black rounded-xl px-3 py-2 text-black text-xs text-center font-rubik" dir="ltr">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cash Box -->
+                    <div id="cashDetails" class="hidden bg-[#FFF8B3] border-2 border-black rounded-2xl p-3 text-xs text-black font-bold flex items-center gap-2.5">
+                        <i class="fa-solid fa-circle-check text-black text-lg"></i>
+                        <span>الدفع نقداً للمندوب عند الاستلام. يُرجى تجهيز المبلغ المطلوب عند وصول الوجبة.</span>
+                    </div>
+                </div>
+
+                <!-- Quick Order Summary Preview -->
+                <div class="bg-[#FFF8B3] p-4 rounded-2xl border-2 border-black space-y-2 shadow-[2px_2px_0px_#000000]">
+                    <div class="flex items-center justify-between text-xs font-black text-black border-b-2 border-black pb-2">
+                        <span>ملخص الطلب:</span>
+                        <span id="checkoutItemCount" class="text-black font-black">0 وجبات</span>
+                    </div>
+                    <div id="checkoutItemsBrief" class="text-xs text-black font-bold space-y-1 max-h-24 overflow-y-auto"></div>
+                    <div class="border-t-2 border-black pt-2 flex justify-between items-center text-sm font-black text-black">
+                        <span>الإجمالي شامل التوصيل:</span>
+                        <span id="checkoutTotal" class="text-black text-lg font-black font-rubik">0 ج.م</span>
+                    </div>
+                </div>
+
+                <!-- Order Submission Options -->
+                <div class="space-y-2.5 pt-2">
+                    <button onclick="submitOrderWhatsApp()" class="w-full bg-black hover:bg-gray-900 text-[#FFD200] font-black py-3.5 rounded-xl border-2 border-black shadow-[3px_3px_0px_#000000] flex items-center justify-center gap-2.5 text-sm transition-transform active:scale-98">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>إرسال الطلب عبر واتساب (WhatsApp)</span>
+                    </button>
+
+                    <a href="tel:056465156484" class="w-full bg-[#FFF8B3] hover:bg-[#FFE54C] border-2 border-black text-black font-black py-3 rounded-xl flex items-center justify-center gap-2 text-sm transition-colors text-center shadow-[2px_2px_0px_#000000]">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>أو اتصل بنا مباشرة: <span class="font-rubik text-black" dir="ltr">056465156484</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Mobile Actions Bar (Both Call & Cart now use the same yellow #FFE54C as delivery tracking) -->
+    <div class="fixed bottom-4 left-4 right-4 z-40 md:hidden flex items-center gap-3">
+        <a href="tel:056465156484" class="flex-1 bg-[#FFE54C] hover:bg-[#FFF073] border-2 border-black text-black py-3 px-4 rounded-2xl font-black flex items-center justify-center gap-2 shadow-[3px_3px_0px_#000000] text-sm">
+            <i class="fa-solid fa-phone-volume text-black animate-pulse"></i>
+            <span class="font-rubik text-black font-black" dir="ltr">056465156484</span>
+        </a>
+        <button onclick="openCart()" class="flex-1 bg-[#FFE54C] hover:bg-[#FFF073] text-black border-2 border-black py-3 px-4 rounded-2xl font-black flex items-center justify-center gap-2 shadow-[3px_3px_0px_#000000] text-sm">
+            <i class="fa-solid fa-cart-shopping text-black"></i>
+            <span class="text-black font-black">السلة</span>
+            <span id="mobileCartCount" class="bg-black text-[#FFD200] text-xs px-2 py-0.5 rounded-full font-black border border-black">0</span>
+        </button>
+    </div>
+
+    <!-- Restaurant Photo Lightbox Modal -->
+    <div id="photoLightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-6" onclick="closePhotoLightbox(event)">
+        <div class="relative max-w-4xl w-full bg-[#FFE54C] rounded-3xl border-3 border-black p-4 sm:p-6 shadow-[8px_8px_0px_#000000] overflow-hidden" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between pb-3 border-b-2 border-black mb-4">
+                <div class="flex items-center gap-2">
+                    <span id="lightboxBadge" class="bg-black text-[#FFD200] border border-black px-3 py-1 rounded-full text-xs font-black">
+                        خارجي ☀️
+                    </span>
+                    <h3 id="lightboxTitle" class="text-base sm:text-lg font-black text-black">
+                        الواجهة الخارجية للمطعم
+                    </h3>
+                </div>
+                <button type="button" onclick="closePhotoLightbox()" class="w-10 h-10 rounded-xl bg-black text-[#FFD200] border-2 border-black flex items-center justify-center text-base hover:bg-gray-800 transition-colors shadow-[2px_2px_0px_#000000]">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Image Container -->
+            <div class="relative rounded-2xl border-2 border-black overflow-hidden bg-black flex items-center justify-center max-h-[65vh]">
+                <img id="lightboxImg" 
+                     src="" 
+                     alt="صورة مكبرة" 
+                     class="w-full max-h-[65vh] object-contain">
+                
+                <!-- Navigation Prev/Next Arrows -->
+                <button type="button" onclick="navigateLightbox(-1)" class="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/80 hover:bg-black text-[#FFD200] border-2 border-black flex items-center justify-center text-lg shadow-lg transition-transform active:scale-95" title="السابق">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button type="button" onclick="navigateLightbox(1)" class="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/80 hover:bg-black text-[#FFD200] border-2 border-black flex items-center justify-center text-lg shadow-lg transition-transform active:scale-95" title="التالي">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <!-- Caption / Footer -->
+            <div class="pt-3 mt-3 border-t-2 border-black flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs font-black text-black">
+                <p id="lightboxCaption" class="text-black font-bold text-xs sm:text-sm">
+                    تصميم عصري وجلسات مريحة في مطعم FRIED CHICKEN
+                </p>
+                <span class="bg-[#FFF8B3] border border-black px-3 py-1 rounded-xl text-[11px] shrink-0">
+                    <i class="fa-solid fa-camera"></i> تصوير واقعي للفرع
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
